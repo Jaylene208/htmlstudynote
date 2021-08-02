@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- base所有链接默认地址或目标，必须从在head中 -->
+    <base href="http://www.w3school.com.cn/i/" />
+    <base target="_blank" />
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
+        <!-- 定义拥有者信息 -->
+        <address>
+         written by jay. <br>
+         in china. <br>
+        </address>
+    
+      <!-- 定义图像映射区域，总是嵌套在<map>中 -->
+        <img src="" usemap="#map" alt="favicon">
+        <map name="map" id="map">
+            <!-- 形状；坐标值；替换文本 -->
+            <area shape="rect" coords="180,180,180" alt="favicon">
+        </map>
+      <!-- 把用户名从周围的文本方向设置中隔离出来，发布用户评论或其他您无法完全控制的内容 -->
+      <ul>
+        <li>Username <bdi dir="ltr">bdi是新标签</bdi> </li>
+    </ul>
+
+    <!-- 覆盖默认文本方向 -->
+    <!-- 从右向左 -->
+    <bdo dir="rtl">Here is some text</bdo>
+
+     <!-- 块引用 -->
+     <blockquote>块引用</blockquote>
+
+     <!-- 按钮 -->
+     <!-- disabled禁用按钮 -->
+     <button disabled>按钮</button>
+
+
+
+
     <h1>333</h1>
 </body>
+
 </html>

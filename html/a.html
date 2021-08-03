@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 
-    <!-- base所有链接默认地址或目标，必须从在head中 -->
-    <base href="http://www.w3school.com.cn/i/" />
-    <base target="_blank" />
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <!-- base所有链接默认地址或目标，必须从在head中 -->
+    <base href="http://www.w3school.com.cn/i/" target="_blank"/>
+
+    <title>HTMLTEST</title>
 </head>
 <body>
         <!-- 定义拥有者信息 -->
@@ -19,11 +19,13 @@
         </address>
     
       <!-- 定义图像映射区域，总是嵌套在<map>中 -->
-        <img src="" usemap="#map" alt="favicon">
+        <!-- （图像不显示） -->
+        <img src="/img/favicon.png" usemap="#map" alt="favicon">
         <map name="map" id="map">
             <!-- 形状；坐标值；替换文本 -->
             <area shape="rect" coords="180,180,180" alt="favicon">
         </map>
+        
       <!-- 把用户名从周围的文本方向设置中隔离出来，发布用户评论或其他您无法完全控制的内容 -->
       <ul>
         <li>Username <bdi dir="ltr">bdi是新标签</bdi> </li>
@@ -37,8 +39,113 @@
      <blockquote>块引用</blockquote>
 
      <!-- 按钮 -->
-     <!-- disabled禁用按钮 -->
+     <!-- disabled禁用;autofocus聚焦 -->
      <button disabled>按钮</button>
+
+     <!-- 图形容器，用脚本绘制图形 -->
+     <canvas id="castest"></canvas>
+     <!-- 通过getContext() -->
+     <script type="text/javascript">
+     var canvas=document.getElementById('castest');
+     var casget=canvas.getContext('2d');
+    //  casget.fillStyle='BLACK';(找不到定义)
+     </script>
+
+     <!-- 表格标题，跟着table后面 -->
+     <table border="3">
+      <caption>表格标题</caption>
+      <tr>
+          <td>111</td>
+          <td>222</td>
+      </tr>
+      <tr>
+          <td>333</td>
+          <td>444</td>
+      </tr>
+  </table>
+
+  <!-- 规定换行处 -->
+  <p>规定在文本中的何处
+    <wbr>适合<wbr>
+    添加换行符</p>
+
+    <!-- col列样式 -->
+    <table width="100%" border="2" >
+      <col align="right">
+      <!-- (不显示) -->
+      <tr>
+          <td>111</td>
+          <td>222</td>
+      </tr>
+      <tr>
+          <td>333</td>
+          <td>44</td>
+      </tr>
+  </table>
+
+  <!-- 调用命令，只能在menu中显示 -->
+  <menu>
+    <!-- 跳出警示框显示文本 -->
+    <!-- vue可以，html不可以 -->
+    <command onclick="alert('hello')">click</command>
+</menu>
+
+<!-- data关联编号 -->
+<ul>
+  <li><data value="210">1212</data></li>
+  <li><data value="201">13131</data></li>
+</ul>
+
+<!-- dd定义条目内容 -->
+<dl>
+  <dt>google</dt>
+  <dd>谷歌....</dd>
+  <dt>baidu</dt>
+  <dd>baidu.....</dd>
+</dl>
+<br>
+
+<!-- del定义被删除文本 -->
+<p>显示<del>被删除</del> 内容</p>
+
+<!-- 描述文档或某个细节 -->
+<details>
+  <summary>只显示标题</summary>
+  点击标题时，会显示出details
+</details>
+
+<!-- 块元素div -->
+<div style="color:#0000FF">
+  <h3>块级元素div</h3>
+</div>
+
+ <!-- 定义嵌入的内容 -->
+ <!-- MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的因特网标准。 MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据 -->
+ <embed src="helloworld.swf" type="MIME_type"></embed>
+
+ <!-- fieldset将表单元素分组 -->
+  <form action="#">
+    <fieldset>
+        <legend>legend定义标题</legend>
+        表单1：<input type="text" >
+        表单2：<input type="text" >
+    </fieldset>
+  </form>
+
+  <!-- 表单 -->
+  <form action="" autocomplete="on">
+    <input type="submit" value="submit">
+    <textarea name="" id="" cols="10" rows="10"></textarea>
+</form>
+
+
+
+
+
+
+
+
+
 
 
 

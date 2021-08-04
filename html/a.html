@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    <!-- meta位于头部，提供页面有关信息 -->
+        <!-- http-equiv把contenr关联到头部 -->
+        <!-- content可以是任意有效字符串 -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,13 +20,17 @@
          in china. <br>
         </address>
     
-      <!-- 定义图像映射区域，总是嵌套在<map>中 -->
-        <!-- （图像不显示） -->
-        <img src="/img/favicon.png" usemap="#map" alt="favicon">
+      <!-- area定义图像映射区域，总是嵌套在<map>中 -->
+        <!-- shape="circle"，coords="x,y,z" -->
+        <!-- shape="polygon"，coords="x1,y1,x2,y2,x3,y3,..." -->
+        <!-- shape="polygon"，coords="x1,y1,x2,y2,x3,y3,..." -->
+        <!-- map:图像可点击区域 -->
+        <img src="favicon.png" usemap="#map" alt="favicon">
         <map name="map" id="map">
             <!-- 形状；坐标值；替换文本 -->
-            <area shape="rect" coords="180,180,180" alt="favicon">
+            <area shape="circle" href="http://www.baidu.com" coords="180,180,180" alt="favicon">
         </map>
+        
         
       <!-- 把用户名从周围的文本方向设置中隔离出来，发布用户评论或其他您无法完全控制的内容 -->
       <ul>
@@ -65,9 +71,7 @@
   </table>
 
   <!-- 规定换行处 -->
-  <p>规定在文本中的何处
-    <wbr>适合<wbr>
-    添加换行符</p>
+  <p>规定在文本中的何处<wbr>适合<wbr>添加换行符</p>
 
     <!-- col列样式 -->
     <table width="100%" border="2" >
@@ -105,8 +109,10 @@
 </dl>
 <br>
 
-<!-- del定义被删除文本 -->
-<p>显示<del>被删除</del> 内容</p>
+<!-- del定义被删除文本,ins定义增加文本 -->
+   <!-- del被删除格式，ins下划线格式 -->
+   <p>显示 <del>被删除</del> 内容</p>
+   <br>
 
 <!-- 描述文档或某个细节 -->
 <details>
@@ -137,6 +143,167 @@
     <input type="submit" value="submit">
     <textarea name="" id="" cols="10" rows="10"></textarea>
 </form>
+
+<!-- input搜集信息 -->
+<form action="#" method="get">
+  <input type="text" placeholder="文本框" autofocus maxlength="4">
+  <input type="radio" name="radio" checked> <br>
+  <input type="text" name="fname" pattern="[A-Z]{1}" title="A-Z任一字母">
+  <!-- pattern规定输入模式，模式是正则表达式 -->
+  <input type="submit" name="submit">
+
+  <!-- HTML DOM input对象（?） -->
+  
+  </form>
+  <br>
+  
+  <!-- keygen规定表单的密钥对生成器字段 -->
+  <!-- 提交表单时私钥(?)储存在本地，公钥发送到服务器 -->
+  <form action="#">
+   用户名：<input type="text" name="usr_name" />
+    <keygen name="security" />
+    <input type="submit" />
+  </form>
+  <br>
+
+  <!-- label 点击文本就可以触发控件,for绑定input -->
+  <form action="#">
+      <label for="male">male</label>
+      <input type="radio" name="male" id="male">
+  </form>
+  <br>
+
+  <!-- ol有序列表，ul无序列表,li列表项目 -->
+  <ol>
+      <li>第一步</li>
+      <li>第二步</li>
+      <li>第三步</li>
+  </ol>
+  <ul>
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+  </ul>
+<br>
+
+<!-- main规定主要内容，且内容唯一 -->
+<main>
+  <h1>首页</h1>
+  <p>Google Chrome 是由 Google 开发的一款免费的开源 web 浏览器，于 2008 年发布。</p>
+  <h3>Google</h3>
+</main>
+<br>
+
+<!-- mark突出显示文本 -->
+<p>定义<mark>带有突出显示记号</mark>的文本</p>
+<br>
+
+<!-- meter定义已知范围或分数值内的标量 -->
+  <p>显示度量值：</p>
+  <meter value="0.6">60%</meter>
+  <br>
+
+<!-- nav导航栏链接 -->
+  <nav>
+  <a href="http://www.baidu.com">baidu</a>
+  <a href="http://www.github.com">github</a>
+  </nav>
+<br>
+
+<!-- optgroup组合选项,必需label属性描述 -->
+      <!-- option选项列表，位于select内部 -->
+      <!-- select创建单选或菜单,size显示选项数目 -->
+      <select size="2">
+        <optgroup label="Google">
+            <option value="Google">123</option>
+        </optgroup>
+        <optgroup label="Baidu">
+            <option value="Baidu">baidu</option>
+        </optgroup>
+        </select>
+        <br>
+
+
+<!-- output显示结果,for定义输出域组件id -->
+      <!-- oninput事件 -->
+      <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        <input type="number" id="a" value="10">
+        +
+        <input type="number" id="b" value="20">
+        =
+        <output name="x" for="a b"></output>
+    </form>
+
+  <!-- span组合行内元素 -->
+  <p>被用来组合文档中的<span>行内元素</span> </p>
+  <br>
+
+  <!-- sub下标文本 -->
+  <p>sub定义<sub>下标</sub>文本</p>
+  <br>
+
+  <!-- sup上标 -->
+  <p>sup定义<sup>上标</sup>文本</p>
+  <br>
+
+  <!-- svg画圆 -->
+  <svg width="100" height="100">
+      <circle cx="50" cy="50" r="40" stroke="blue" stroke-width="2" fill="red" />
+  </svg>
+  <!-- svg画矩形 -->
+  <svg width="400" height="100">
+     <rect width="400" height="100" style="fill:rgb(255,255,255);stroke-width:8;stroke:rgb(0,0,0)" />
+  </svg>
+  <br>
+
+  <!-- pre预格式化,定义页面源码 -->
+  <pre>pre常见应用就是用来表示计算机的源代码</pre>
+
+  <!-- progress显示任务进度，与JS一起用 -->
+  <progress value="35" max="100"></progress>
+  <br>
+  
+  <!-- table定义表格,tr定义行，th定义表头，td定义表格单元 -->
+  <table border="1" >
+      <!-- thead对表头组合，tbody组合主体内容，tfoot定义表格页脚 -->
+      <thead>
+      <tr>
+          <th>ONE</th>
+          <th>TWO</th>
+          <th>THREE</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td>1月</td>
+          <td>2月</td>
+          <td>3月</td>
+      </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+              <td>sum</td>
+              <td>sum</td>
+              <td>sum</td>
+          </tr>
+      </tfoot>
+  </table>
+  <br>
+
+  <!-- u文本下划线 -->
+  <p>定义<u>下划线</u>文本</p>
+  <br>
+
+  <!-- 视频 -->
+  <!-- loop持续播放；controls播放控件；muted静音-->
+  <video src="video.mp4" controls width="50%" height="50%"></video>
+
+  <!-- 规定换行处 -->
+  <p>规定在文本中的何处Word<wbr>Break<wbr>Opportunity添加换行符</p>
+
+
+
+
 
 
 

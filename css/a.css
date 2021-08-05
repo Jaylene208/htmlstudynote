@@ -1,0 +1,143 @@
+.a1{
+    width: 100px;
+    border: 2px solid red;
+    /*  对齐弹性线 */
+    align-content: center;
+    /* (要看) */
+    display: flex;
+    /* 需要时换行 */
+    flex-wrap: wrap;
+}
+.a1 div{
+    border: 1px solid rgb(8, 74, 255);
+}
+.a2{
+    width: 80px;
+    display: flex;
+    /* // 内容对齐 */
+    align-items: baseline;
+}
+.a2 div{
+    border: 1px solid green;
+    /* // 覆盖align-items */
+    align-self: center;
+}
+.anim{
+    width: 100px;
+    height: 100px;
+    background: black;
+    /* //position 必需属性  */
+    position: relative;
+    /* //  名字，时间，动画曲线 */
+    animation: move 5s infinite;
+    /* //轮流反向播放 */
+    animation-direction:alternate;
+    /* //播放次数 */
+    animation-iteration-count: 3;
+    /* //规定速度曲线：linear速度相同；默认ease慢-快-慢 */
+    animation-timing-function: linear;
+}
+@keyframes move
+{
+from {left:100px;}
+to {left:300px;}
+}
+.b1{
+    width: 60px;
+    height: 50px;
+    background: brown;
+    /* //旋转元素 */
+    transform:rotateY(180deg);
+    /* // 隐藏元素背面，当元素不面向屏幕时是否可见 */
+    backface-visibility: visible;
+}
+.background{
+    height: 200px;
+    width: 400px;
+    background: yellow;
+    border:5px dotted #0123b9;
+    padding: 40px;
+    /* // 规定背景的绘制区域 */
+    background-clip:border-box;
+}
+.back{
+    height: 100px;
+    border:2px solid #7790ff;
+    background-image: url("./assets/logo.png");
+    /* //（?）不显示 */
+    /* //设置背景图像固定或随着页面滑动 */
+    background-attachment: scroll;
+    /* //设置背景图像的混合模式 */
+    background-blend-mode: lighten;
+     /* //规定position背景图像相对于什么位置定位 */
+    /* //background-attachment属性为 "fixed"该属性没有效果 */
+    background-origin:content-box;
+    /* //设置背景图像的起始位置 */
+    background-position:center;
+    /* //设置是否及如何重复背景图像 */
+    background-repeat:no-repeat;
+    /* //规定背景图像的尺寸 */
+    background-size:70px 70px;
+}
+.font{
+    color:green;
+    font-family: serif;
+    /* // 文体靠右 */
+    direction: rtl;
+    /* // ？vue不支持 */
+    unicode-bidi: bidi-override;
+}
+.text{
+    /* // justify每行等宽度，左右边距直的 */
+    text-align: justify;
+    /* // 字体缩进 */
+    text-indent: 50px;
+    /* // 文字大小写转换 */
+    text-transform: uppercase;
+}
+.box{
+    width:100px;
+    height:100px;
+    background:rgb(155, 155, 255);
+    border: 3px solid violet;
+    /* //边框圆角样式 */
+    border-radius: 10%;
+    /* //边框底部样式 */
+    border-bottom:thick dotted #ffcccc;
+    /* //边框阴影 */
+    box-shadow: 5px 10px 5px #888888;
+    /* //规定在指定元素之后是否应发生分页、分列、或分区 */
+    break-after: always;
+    break-before: right;
+    break-inside: all;
+}
+.border-table{
+    /* //设置表格的边框合并/分开 */
+    border-collapse:separate;
+    /* //设置相邻单元格的边框间的距离：水平，垂直 */
+    border-spacing:10px 5px;
+}
+.border-table table,th,td{
+    border:1px solid black;
+}
+.border-table caption{
+    /* //表格标题位置 */
+    caption-side:bottom;
+}
+.input{
+    /* //输入光标颜色 */
+    caret-color: red;
+}
+.float div{
+    border:1px solid black;
+    float: left;
+    /* //规定元素的哪一侧不允许其他浮动元素 */
+    clear: right;
+}
+.imgage{
+    position: absolute;
+    /* //剪裁:top, right, bottom, left */
+    clip:rect(0px 50px 50px 0px);
+    /* //裁剪为基本形状或 SVG 源(不显示) */
+    clip-path: circle(50%);
+}

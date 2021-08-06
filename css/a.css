@@ -1,15 +1,18 @@
 .a1{
     width: 100px;
+    height: 100px;
     border: 2px solid red;
-    /*  对齐弹性线 */
+    /* // 对齐弹性线 */
     align-content: center;
-    /* (要看) */
     display: flex;
-    /* 需要时换行 */
+    /* // 需要时换行 */
     flex-wrap: wrap;
 }
 .a1 div{
+    margin: 6px;
     border: 1px solid rgb(8, 74, 255);
+    /* //轮廓 */
+    outline:#ff0077 dotted thick;
 }
 .a2{
     width: 80px;
@@ -26,8 +29,7 @@
     width: 100px;
     height: 100px;
     background: black;
-    /* //position 必需属性  */
-    position: relative;
+    /* position: relative;//必需属性 */
     /* //  名字，时间，动画曲线 */
     animation: move 5s infinite;
     /* //轮流反向播放 */
@@ -59,12 +61,13 @@ to {left:300px;}
     padding: 40px;
     /* // 规定背景的绘制区域 */
     background-clip:border-box;
+    /*透明度*/
+    opacity:0.5;
 }
 .back{
     height: 100px;
     border:2px solid #7790ff;
-    background-image: url("./assets/logo.png");
-    /* //（?）不显示 */
+    /* background-image: url("./assets/logo.png");//（?）不显示 */
     /* //设置背景图像固定或随着页面滑动 */
     background-attachment: scroll;
     /* //设置背景图像的混合模式 */
@@ -81,19 +84,46 @@ to {left:300px;}
 }
 .font{
     color:green;
+    font-size: 22px;
+    font-style:italic;
     font-family: serif;
+    font-weight:bold;
+    /* //对当前的 font-family 进行伸缩变形(无效果) */
+    font-stretch:wider;
+    /* //小型大写字母的字体显示文本 */
+    font-variant-caps:small-caps;
     /* // 文体靠右 */
     direction: rtl;
     /* // ？vue不支持 */
     unicode-bidi: bidi-override;
 }
 .text{
+    width: 400px;
+    /* //段落中的文本不进行换行 */
+    white-space:nowrap; 
+    overflow:hidden; 
+    /* //文字溢出时用省略号代替 */
+    text-overflow:ellipsis;
     /* // justify每行等宽度，左右边距直的 */
     text-align: justify;
-    /* // 字体缩进 */
+    /* // 段落缩进 */
     text-indent: 50px;
     /* // 文字大小写转换 */
     text-transform: uppercase;
+    /* //文字阴影 */
+    text-shadow: 2px 2px 1px #FF0000;
+    /* //文本修饰 */
+    text-decoration:underline;
+    text-decoration-style: double;
+    text-decoration-color: rgb(2, 107, 114);
+    /* //字体间距  */
+    letter-spacing:2px;
+    /* //设置文本单词的间距 */
+    word-spacing:15px;
+    /* //设置行高 */
+    line-height:100%;
+    /* //段落的最大高度 */
+    max-height:100px;
 }
 .box{
     width:100px;
@@ -114,6 +144,8 @@ to {left:300px;}
 .border-table{
     /* //设置表格的边框合并/分开 */
     border-collapse:separate;
+    /* //隐藏表格中空单元格上的边框和背景,默认show */
+    empty-cells: hide; 
     /* //设置相邻单元格的边框间的距离：水平，垂直 */
     border-spacing:10px 5px;
 }
@@ -134,10 +166,193 @@ to {left:300px;}
     /* //规定元素的哪一侧不允许其他浮动元素 */
     clear: right;
 }
-.imgage{
+.image{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    /* //水平对齐容器的方式 */
+    justify-content:space-between;
+}
+.img1{
+    width: 600px;
+    height: 400px;
+    /* //位置绝对 */
     position: absolute;
-    /* //剪裁:top, right, bottom, left */
-    clip:rect(0px 50px 50px 0px);
-    /* //裁剪为基本形状或 SVG 源(不显示) */
+    /* //剪裁:top, right, bottom, left。position设置absolute才起作用 */
+    clip:rect(0px 500px 400px 0px);
+    /* //定义视觉效果（模糊）：blur(px)；opacity(%) */
+    /* //对比度contrast(%)；饱和度saturate(%)；亮度brightness(%) */
+    /* //阴影效果drop-shadow(h-shadow v-shadow blur spread color) */
+    filter: blur(5px);
+}
+.img2{
+    width: 600px;
+    height: 400px;
+    /* //裁剪为基本形状或 SVG 源。样式直接赋给图片才有用。 */
     clip-path: circle(50%);
+    /* //定义图片视觉效果（转为灰阶） */
+    filter: grayscale(100%);
+}
+.column{
+    border:1px solid black;
+    /* // 文本分列 */
+    column-count:2;
+    -webkit-column-count:2;/* Safari and Chrome */
+    /* //规定列宽（设置分列此属性无效） */
+    column-width:100px;
+    -webkit-column-width:100px;
+    /* //对列进行填充 */
+    column-fill:auto;
+    /* //规定列之间的间隔 */
+    column-gap:10px;
+    /* //规定列间隔线的宽度、样式、颜色 */
+    column-rule:4px dotted #1e661e;
+}
+.column h2{
+    /* //标题横跨列数 */
+    column-span:all;
+}
+.column2{
+    columns: 80px 3;
+}
+.content a:after{ 
+    /* //每个链接后插入括号中的 URL */
+    content: " (" attr(href) ")";
+}
+/* //计数器 自动编号 */
+body {counter-reset:section;}
+h1 {counter-reset:subsection;}
+.counter h1:before{
+    counter-increment:section;
+    content:"Section " counter(section) ". ";
+}
+.counter h2:before{
+    counter-increment:subsection;
+    content:counter(section) "." counter(subsection) " ";
+}
+
+.cursor1{
+    cursor:pointer
+}
+.display p{
+/* //定义建立布局时元素生成的显示框类型 */
+    display: inline;
+}
+.flex {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    /* //规定弹性项目的方向 */
+    flex-direction: column;
+    /* //-direction,-wrap简写。反向显示 */
+    flex-flow: row-reverse wrap;
+}
+.flex-left{
+    background-color: #f1f1f1;
+    /* //弹性项目的弹性长度 */
+    /* //-grow:增长量；-shrink：收缩量；-basis长度 */
+    flex: 50%;
+}
+.flex-right{
+    background-color: #7e7e7e;
+    flex: 50%;
+}
+.grid{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+}
+/* //网格布局(太多了..) */
+.grid div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 26px;
+}
+.list ul{
+    /* //列表项目标记 */
+    list-style:square inside url('./assets/icon7.png');
+}
+.margin{
+    width: 300px;
+    height: 200px;
+    background: rgb(0, 60, 255);
+/* //外边距属性 */
+    margin:10px 5px 15px 20px ;
+}
+/* //@media 用于为不同的媒体类型/设备应用不同的样式() */
+body {
+  background-color: lightblue;
+}
+@media screen and (min-width: 300px) {
+  body {
+    background-color: lavender;
+  }
+}
+@media screen and (min-width: 600px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+.overflow{
+    width: 150px;
+    height: 100px;
+    /* //规定当内容溢出元素框时显示方式 */
+    overflow: scroll;
+}
+.pad{
+    width: 500px;
+    height: 300px;
+    background: rgb(255, 183, 249);
+    background-clip:content-box;
+    border: 1px solid red;
+    /* //内边距 上 右 下 左 */
+    padding:30px 35px 25px 20px ;
+}
+.div1{
+    border:2px solid;
+    width:300px;
+    /* //对指针事件不做反应 */
+    pointer-events: none;
+    /* //用户可以调整尺寸大小，需同时设置overflow属性 */
+    resize:both;
+    overflow:auto;
+}
+.pos-abs{
+    /* //绝对定位 */
+    position:absolute;
+    left:100px;
+}
+.pos-rel{
+    /* //相对定位 */
+    position:relative;
+    left:-10px;
+}
+/* //文档平滑滚动切换效果 */
+html {
+  scroll-behavior: smooth;
+}
+#main1{
+    height: 300px;
+    background-color: pink;
+}
+#main2{
+    height: 300px;
+    background-color: rgb(222, 255, 73);
+}
+.table1{
+    /* //设置列宽固定（ automatic由内容决定） */
+    table-layout: fixed;
+}
+.select{
+    /* //不能选取元素 */
+    user-select: none;
+}
+.index{
+    /* //图片在文字下一层显示 */
+    position:absolute;
+    z-index:-1;
 }

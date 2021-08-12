@@ -516,22 +516,8 @@ arrayFunction21:{
     console.log(test1);
     console.log(test2);
 }
-/**
- * 时间对象方法
- */
-dateFunction1: {
     var d= new Date();
-    var da = new Date("2015-03");
-    console.log(d.toDateString());
-    console.log(da);
-    console.log(d.getTime());
-    console.log(d.getFullYear());
-    console.log(d.getDay());
-    d.setFullYear(2018);
-    console.log(d);
-    d.setHours(12);
-    console.log(d);
-}
+
 /**
  * JS数学
  */
@@ -588,4 +574,350 @@ switchFunction: {
         default:text="1";
     }
     console.log(text);
+}
+/**
+             * for循环
+             * for/in 循环
+             */
+ testFunction0:{
+    var arr=[1,3,5,6,"ab","bd"];
+    for(var i=0;i<arr.length;i++){
+        console.log(arr[i]);
+    };
+    var x;
+    for(x in arr){
+        console.log(arr[x]);
+    };
+}
+/**
+ * 测试循环
+ *  map forEach
+ */
+testFunction1:{
+    var arr=[1,3,5,6,"ab","bd"];
+    arr.map((o,i)=>{
+        console.log(o);
+    });
+    arr.forEach(value => {
+        console.log(value);
+    });
+}
+/**
+ * while 循环
+ * do while 循环
+ */
+testFunction2:{
+    var i=0 ;
+    while(i<10){
+        i++;
+        console.log("number"+i);
+    };
+
+    do{
+        i++;
+        console.log("number"+i);
+    }
+    while(i<15);
+}
+/**
+ * 比较for和while
+ */
+testFunction3:{
+    var cars = ["Porsche", "LEXUS", "BMW"];
+    var i=0;
+    while(cars[i]){
+        console.log(cars[i]);
+        i++;
+    };
+    var car = ["Porsche", "LEXUS", "BMW"];
+    var x=0;
+    for(;cars[x];){
+        console.log(car[x]);
+        x++;
+    };
+}
+/**
+ * 比较break和continue
+ */
+testFunction4:{
+    var arr=["ab","bd","cd","df"];
+    var i=0;
+    for(var i=0;i<arr.length;i++){
+        if(i===4){
+            break;
+        };
+        console.log(arr[i]);
+    };
+    for (var x=0; x<7; x++) {
+        if (x===3) { 
+            continue; 
+        };
+        console.log(x);
+    };
+}
+/**
+ * JS类型
+ * constructor
+ * 类型转换
+ */
+testFunction5:{
+    //返回构造器函数
+    console.log( function () {}.constructor);
+    console.log("john".constructor);
+    //确定某个对象是否为数组
+    var arr=["ab","bd","cd","df"];
+    function isArray1(myArray) {
+        return myArray.constructor.toString().indexOf("Array") > -1;
+    };
+    function isArray2(myArray) {
+        return myArray.constructor === Array;
+    };
+    console.log(isArray1(arr));
+    console.log(isArray2(arr));
+    //类型转换
+    var x=123;
+    console.log( String(x));
+
+}
+/**
+ * 位运算符
+ */
+testFunction6:{
+    var x=5&1;
+    console.log(x);
+}
+/**
+ * 正则表达式 例：/（）/ 
+ * search() :搜索匹配，然后返回匹配的位置
+ * replace():返回模式被替换处修改后的字符串
+ * test():搜索字符串
+ * 
+ */
+testFunction7:{
+    var str = "Visit W3School!"; 
+    var n = str.search("W3School");
+    console.log(n);
+    var m = str.search(/W3School/i);
+    console.log(m);
+    var txt = str.replace("W3School","Microsoft");
+    console.log(txt);
+    var rep = str.replace(/W3School/i,"microsoft"); 
+    console.log(rep);
+    console.log(/i/.test(str));
+    var obj=/i/.exec(str);
+    console.log(obj[0]);
+}
+/**
+ * JS异常
+ */
+testFunction8:{
+    var  x=4;
+    try { 
+        if(x == "")  throw "是空的";
+        if(isNaN(x)) throw "不是数字";
+        x = Number(x);
+        if(x > 10)   throw "太大";
+        if(x < 5)  throw "太小";
+     }
+    catch(err) {
+        console.log(err);
+    }
+    finally{
+        console.log("");
+    };
+    //范围错误 RangeError 
+    var num = 1;
+    try {
+    num.toPrecision(500);
+    }
+    catch(err) {
+        console.log(err.name);
+    };
+    //类型错误
+    var num = 1;
+    try {
+        num.toUpperCase();   // 您无法将数字转换为大写
+    }
+    catch(err) {
+        console.log(err.name);
+    } ;
+}
+/**
+ * this关键字
+ */
+testFunction9 : {
+    var person = {
+        "firstName": "Bill",
+        "lastName" : "Gates",
+        "id": 6,
+        "fullName" :  {
+            return: this.firstName + " " + this.lastName
+        }
+    };
+    console.log(person.fullName());
+}
+/**
+ * let关键词（块作用域）:在块中重新声明变量不会重新声明块外的变量
+ */
+testFunction10:{
+    var x=10;
+    {
+        let x=2;
+    }
+    console.log(x);
+    var i = 5;
+    for (var i = 0; i < 10; i++) {
+    };
+    console.log(i);
+    let y=2;
+    for (let y = 0; y < 5; y++) {
+    };
+    console.log(y);
+}
+/**
+ * const关键词（块作用域）:可以更改属性值，但无法重新赋值
+ * 必须在声明时赋值
+ */
+testFunction11:{
+    var x=10;
+    {
+        const x=2;
+    }
+    console.log(x);
+    try {
+        const PI = 3.14159265;
+        PI = 3.14;
+    }
+    catch (err) {
+        console.log(err);
+    };
+    const car = {
+        "type":"Porsche", 
+        "model":"718", 
+        "color":"white"
+    };
+    car.color = "black";
+    console.log(car["color"]);
+}
+/**
+ * 属性 Getter 和 Setter
+ *  以属性形式访问
+ */
+testFunction12:{
+    var person = {
+        "firstName": "Bill",
+        "lastName" : "Gates",
+        "language" : "NO",
+        get lang() {
+            return this.language;
+        },
+        set lang(value) {
+            this.language = value;
+        }
+    };
+    person.lang="eng";
+    console.log(person.lang);
+}
+/**
+ * Object.defineProperty()
+ */
+testFunction13:{
+    var person = {
+        "firstName": "Bill",
+        "lastName" : "Gates",
+        "language" : "NO"
+    };
+    Object.defineProperty(person, "language", 
+        {
+            get :  { return: language },
+            set : function(value) { language = value}
+        }
+    );
+    person.lang="Chinese";
+    console.log(person.lang);
+}
+/**
+ * JS表单
+ */
+formFunction:{
+    var x,txt;
+    x=document.getElementById("num").value;
+    if(isNaN(x)||x<1||x>10){
+        txt="无效";
+    }
+    else{
+        txt="有效";
+    };
+    document.getElementById("form1").innerHTML=txt;
+}
+/**
+ * 验证API:checkValidity()
+ */
+validityFunction:{
+    var obj=document.getElementById("val1");
+    if(!obj.checkValidity()){
+        document.getElementById("val2").innerHTML=obj.validationMessage;
+    }
+    else{
+        document.getElementById("val2").innerHTML="有效";
+    };
+}
+/**
+ * 对象构造器
+ * 必须在函数内添加新属性/方法 或 使用prototype
+ */
+personFunction:{
+    function Person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    };
+    Person.prototype.nationality = "English";
+    Person.prototype.name =  {
+        return: this.firstName + " " + this.lastName
+    };
+    var bro= new Person("Bill", "Gates", 6, "blue");
+    console.log(bro.nationality);
+    console.log(bro.name());
+}
+/**
+ * 函数定义
+ * arguments.length: 返回函数被调用时收到的参数数目
+ * toString(): 以字符串返回函数
+ */
+funFunction:{
+    function myFunction(a,b){
+        return arguments.length;
+    };
+    console.log(myFunction(3,4));
+    var txt = myFunction.toString();
+    console.log(txt);
+    const num=(x,y)=>{
+        return x*y;
+    };
+    console.log(num(5,5));
+}
+/**
+ * call():调用所有者对象作为参数
+ * apply() : 接受数组形式的参数
+ */
+callFunction:{
+    var person = {
+        "fullName":  {
+            return :this.firstName + " " + this.lastName
+        }
+    };
+    var person1 = {
+        firstName:"Bill",
+        lastName: "Gates"
+        };
+    var person2 = {
+        firstName:"Steve",
+        lastName: "Jobs"
+        };
+    var x = person.fullName.apply(person1); 
+    var y = person.fullName.call(person2); 
+    console.log(x);
+    console.log(y);
 }

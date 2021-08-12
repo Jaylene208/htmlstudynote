@@ -516,7 +516,6 @@ arrayFunction21:{
     console.log(test1);
     console.log(test2);
 }
-    var d= new Date();
 
 /**
  * JS数学

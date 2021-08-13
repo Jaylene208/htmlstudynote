@@ -920,3 +920,162 @@ callFunction:{
     console.log(x);
     console.log(y);
 }
+closureFunction1:{
+    function add(){
+                var counter=0;
+                counter+=1;
+                return counter;
+                };
+        console.log(add());
+}
+closureFunction2:{
+    var add=({
+                var: counter=0,
+                return: function() {counter+=1;return counter;}
+                }
+            )();//自调用
+    console.log(add());
+}
+/**
+ * DOM元素 
+ * 需要索引
+ */
+domFunction1:{
+    var x=document.getElementsByClassName("intro1");
+    console.log(x[0].innerHTML);
+    var y=document.getElementsByTagName("p");
+    console.log(y[0].innerHTML);
+    var m=document.querySelectorAll("p.intro2");//通过 CSS 选择器查找 HTML 元素
+    console.log(m[0].innerHTML);
+    var a=document.write(Date());//覆盖文档
+    console.log(a);
+}
+/**
+ * JS动画
+ */
+domFunction2:{
+    var elem=document.getElementById("anim");
+    var pos=0;
+    var id=setInterval((frame) => {
+        if(pos==170){
+            clearInterval(id);
+        }
+        else{
+            pos++;
+            elem.style.top=pos+"px";
+            elem.style.left=pos+"px";
+        }
+    }, 5);
+}
+/**
+ * onchange 事件
+ */
+domFunction3:{
+    var x = document.getElementById("fname");
+    x.value = x.value.toUpperCase();
+    console.log(x);
+}
+/**
+ * 事件监听
+ */
+eventFunction1:{
+    document.getElementById("Btn").addEventListener("click",  {
+        alert();
+    });
+}
+/**
+ * DOM节点
+ * appendChild()追加最后一个子
+ */
+domFunction4:{
+    var para = document.createElement("p");//创建了一个新的<p>元素
+    var node = document.createTextNode("这是新的文本。");//创建文本节点
+    para.appendChild(node);//向<p>元素追加文本节点
+
+    var element1 = document.getElementById("div1");
+    element1.appendChild(para);//向已有元素追加新元素
+}
+/**
+ * insertBefore()在前面追加子
+ */
+domFunction5:{
+    var para = document.createElement("p");//创建了一个新的<p>元素
+    var node = document.createTextNode("这是新的文本。");//创建文本节点
+    para.appendChild(node);//向<p>元素追加文本节点
+
+    var element2 = document.getElementById("div1");
+    var child = document.getElementById("p1");
+    element2.insertBefore(para,child);//向已有元素追加新元素
+}
+/**
+ * Window方法
+ * location 对象可用于获取当前页面地址（URL）
+ * navigator 对象包含有关访问者的信息
+ */
+windowFunction0:{
+    window.open() ;//打开新窗口
+    console.log(screen.height);//屏幕高度
+    console.log(window.location.href);//返回当前页面的URL
+    console.log(window.location.pathname);//返回当前页面的路径名
+    console.log(navigator.platform);//返回浏览器平台（操作系统）
+    console.log(navigator.cookieEnabled);
+    console.log(navigator.appName);//返回浏览器的应用程序名称
+}
+/**
+ * 弹出框
+ */
+windowFunction1:{
+    alert("我是一个警告框！");
+}
+/**
+ * 确认框
+ */
+windowFunction2:{
+    var txt;
+    if (confirm("Press YES")) {
+        txt = "YES";
+    } else {
+        txt = "no";
+    }
+    console.log(txt);         
+}
+/**
+ * 提示框
+ */
+windowFunction3:{
+    var txt;
+    var person = prompt("请输入您的名字：");
+    if (person == null || person == "") {
+        txt = "取消输入";
+    } else {
+        txt = "你好，" + person;
+    }
+    console.log(txt);
+}
+/**
+ * Timing 事件
+ */
+timingFunction:{
+    function myFunction(){
+    alert("hello");
+    };
+    setTimeout(myFunction, 3000);//延迟三秒
+    function myTimer() {
+        var d = new Date();
+        document.getElementById("time").innerHTML = d.toLocaleTimeString();
+    };
+    setInterval(myTimer, 1000);
+}
+/**
+ * JSON
+ * JSON.stringify():把 JavaScript 对象转换为字符串
+ * 
+ */
+jsonFunction:{
+    var person =  { 
+        "name": "Bill Gates", 
+        "age" : 62, 
+        "city" : "Seattle" };
+        console.log(person["age"]);
+        console.log(JSON.stringify(person));
+}
